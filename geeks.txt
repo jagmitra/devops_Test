@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# creating multiple processes
+cat > Geeks.txt <<< "GeeksGeeks" &
+sleep 2 &
+cat > something_new.txt <<< "Something new is created" &
+
+echo "Multiple processes are running"
+
+# using wait to wait for the processes to finish
+# -f will wait until all the processes is executed.
+wait -f
+
+#printing process Exit status
+# $? is special variable that holds the return value of the recently executed command.
+echo "All Processes end with Exit status: $?"
